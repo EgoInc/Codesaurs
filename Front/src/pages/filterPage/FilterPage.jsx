@@ -1,10 +1,10 @@
 import FilterCard from "../../components/filterCard/FilterCard";
 import './filterPage.scss'
-
-
 import ApiServices from "../../services/ApiServices.ts"
 import React, {useEffect, useState} from "react";
 import {options} from "axios";
+import CourseCard from "../../components/CourseCard/CourseCard";
+
 const Filter = () => {
     const [itemList, setItemList] = useState([]);
     const [level, setLevel] = useState("");
@@ -52,13 +52,13 @@ const Filter = () => {
     const onError = () => {
         setLoading(false)
         setError(true)
+        setItemList(Array(100).fill().map(()=>product))
     }
 
     const onLoading = () => {
         setLoading(true)
         setError(false)
     }
-
 
     const handleLevel = (event) => {
         setSelectedCategories([...selectedCategories, event.target.value])
@@ -111,7 +111,8 @@ const Filter = () => {
         level: 'Кодозавренок',
         length: '10 уроков',
         description: 'Идеально для новичков\n Видео лекции практические занятия\n Можно изучать в своем темпе\n',
-        title: 'Основы программирования'
+        title: 'Основы программирования',
+        chips: ['#Popular', '#New', '#52']
     }
 
     return (
@@ -204,11 +205,9 @@ const Filter = () => {
                         <select name="" id="" className="cards-block__select">
                             <option value="">Сортировать</option>
                         </select></div>
-                    {loading ? (
+                    {!loading ? (
                         <div className="cards-block__list">
-                            <FilterCard product={product}/>
-                            <FilterCard product={product}/>
-                            <FilterCard product={product}/>
+                            {itemList.map(course => <CourseCard course={course}/>)}
                         </div>
                     ) : <p className="cards-block__list-loading">Loading...</p>}
                 </div>

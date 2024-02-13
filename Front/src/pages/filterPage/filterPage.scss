@@ -5,20 +5,20 @@
 
   &-container {
     display: flex;
-
+    align-items: flex-start;
+    justify-content: space-between;
     width: 95%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
   }
 
   &-block {
     background-color: #323232;
 
     margin-right: 30px;
-    padding: 20px 50px;
+    padding: 30px 50px;
     width: 25%;
-    height: 500px;
-
+    //height: 550px;
     border-radius: 30px;
 
     &__header {
@@ -30,7 +30,7 @@
       font-weight: 600;
       letter-spacing: 2px;
 
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     &__main-item {
@@ -71,7 +71,6 @@
 
         font-size: 13px;
         line-height: 17px;
-
         border: none;
         border-radius: 24px;
         padding: 10px 30px 10px 15px;
@@ -165,19 +164,24 @@
       border: none;
       border-radius: 24px;
 
-      background-color: #fb2826;
       color: white;
 
       font-size: 18px;
       text-transform: uppercase;
       letter-spacing: 2px;
 
-      margin: 20px;
-      padding: 10px 50px;
+      margin: 35px 20px 5px;
+      padding: 13px 50px;
       width: 60%;
 
       cursor: pointer;
 
+
+      background-color: #e72321;
+      font-weight: 600;
+      &:hover{
+        background-color: #ff0c00;
+      }
     }
   }
   .cards-block {

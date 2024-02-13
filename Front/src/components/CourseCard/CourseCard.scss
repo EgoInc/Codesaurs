@@ -1,0 +1,91 @@
+.card{
+    display: flex;
+    margin: 20px 0;
+    padding: 15px 20px;
+    align-items: stretch;
+    justify-content: space-between;
+    border-radius: 24px;
+    background-color: #323232;
+    color: white;
+    gap: 20px;
+    &__img{
+        max-width: 200px;
+        border-radius: 24px;
+    }
+    &__main{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        height: 100%;
+    }
+    &__title{
+        padding-top: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &__description{
+        font-size: 14px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+    &__chips{
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    &__chip{
+        padding: 5px 18px 7px;
+        background: #fff;
+        color: black;
+        text-align: center;
+        font-size: 13px;
+        border-radius: 20px;
+    }
+    &__difficulties {
+        color: white;
+        background-color: inherit;
+        margin-top: 5px;
+        padding: 8px 20px;
+        border: solid #d7d7d7 1px;
+        border-radius: 25px;
+    }
+    &__actions{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        height: 100%;
+    }
+    &__lessons-count{
+        font-size: 13px;
+        color: #e5e5e5;
+        padding-right: 10px;
+    }
+    &__price{
+        margin-top: auto;
+        font-size: 20px;
+        font-weight: 600;
+        padding-right: 10px;
+    }
+    &__btn {
+        color: white;
+        background-color: #e72321;
+        padding: 10px 35px;
+        border: none;
+        border-radius: 24px;
+        font-weight: 600;
+        cursor: pointer;
+        &:hover{
+            background-color: #ff0c00;
+        }
+    }
+}

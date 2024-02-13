@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
         <FilterPage/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Начнем создавать онлайн-школу</p>
-        <ExamplePage />
-      </header>
+      {/*<header className="App-header">*/}
+      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
+      {/*  <p>Начнем создавать онлайн-школу</p>*/}
+      {/*  <ExamplePage />*/}
+      {/*</header>*/}
     </div>
   );
 }
