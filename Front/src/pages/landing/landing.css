@@ -1,14 +1,17 @@
 
 .banner {
     background-size: cover;   
-    background-image: url("D:/Codesaurs/Front/src/assets/images/background.png");
-    width: 100vw;
+    background-image: url("../../assets/images/background.png");
+    width: 100%;
     height: 95vh;
 }
 
 .container {
-flex-direction: column;
-background-color: #161616;
+    flex-direction: column;
+    background-color: #161616;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 button {
@@ -22,6 +25,7 @@ button {
     font-size: 0.9rem;
     margin-top: 70vh;
     margin-left: -40vw;
+    cursor: pointer;
   } 
 button:hover { background: #fd4643; } /* при наведении курсора мышки */
 button:active { background: #fd1715; } /* при нажатии */
@@ -43,4 +47,5 @@ h1 {
     font-size: 30px;
     text-align: start;
     margin-left: 10vw;
+    color: white;
 }

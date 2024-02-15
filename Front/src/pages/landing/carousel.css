@@ -19,7 +19,7 @@ body {
   position: absolute;
   text-align: center;
   line-height: 50px;
-  background: #fff;
+  background: white;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.23);
   transform: translateY(-50%);
@@ -87,8 +87,28 @@ body {
   font-weight: 500;
   font-size: 20px;
   margin: 30px 0 5px;
+  color: white;
 }
 .carousel .card span {
   color: #6A6D78;
   font-size: 13px;
+}
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  display: inline-flex;
+  border: 15px solid transparent;
+  content: '';
+}
+
+.left-arrow {
+  top: 10px;
+  left: 0;
+  border-right: 15px solid #6A6D78;
+}
+
+.right-arrow {
+  top: 10px;
+  right: 0;
+  border-left: 15px solid #6A6D78;
 }

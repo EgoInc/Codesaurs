@@ -6,14 +6,13 @@ import "./App.css";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 import { ExamplePage } from "./pages/example/example";
+import { LandingPage } from "./pages/landing/landing";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Начнем создавать онлайн-школу</p>
-        <ExamplePage />
+        <LandingPage />
       </header>
     </div>
   );

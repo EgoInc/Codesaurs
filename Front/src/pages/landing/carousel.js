@@ -122,7 +122,9 @@ const Carousel = () => {
   return (
     <body>
     <div class="wrapper">
-      <i id="left" />
+      <i id="left">
+        <div class="left-arrow"/>
+        </i>
         <ul class="carousel">
           {courses.map(card => (
             <li class="card">
@@ -132,7 +134,9 @@ const Carousel = () => {
           </li>
             ))}
         </ul>
-      <i id="right" />
+      <i id="right">
+        <div class="right-arrow"/>
+      </i>
     </div>
   </body>
   );
