@@ -1,7 +1,13 @@
-from fastapi import FastAPI, HTTPException
+import sys
+import os
+
+# Добавляем путь к папке db в sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'db')))
+
+from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 from typing import Optional
-from db.models.course import Course  # Импортируем модель Course из базы данных
+from models.course import Course  # Импортируем модель Course из базы данных
 
 app = FastAPI()
 
@@ -15,10 +21,11 @@ class CourseCreate(BaseModel):
     duration: int
     price: int
     language: str
-    level: int
+    level: str
     stages: str
     practice_description: str
     max_score: int
+
 
 class CourseResponse(BaseModel):
     id: int
@@ -29,15 +36,37 @@ class CourseResponse(BaseModel):
     duration: int
     price: int
     language: str
-    level: int
+    level: str
     stages: str
     practice_description: str
     max_score: int
     views: int
 
 
+def get_list_of_courses(courses):
+    list_of_courses = []
+    for course in courses:
+        course_response = CourseResponse(
+            id=course.id,
+            name=course.name,
+            short_description=course.short_description,
+            description=course.description,
+            imageurl=course.imageurl,
+            duration=course.duration,
+            price=course.price,
+            language=course.language,
+            level=course.level,
+            stages=course.stages,
+            practice_description=course.practice_description,
+            max_score=course.max_score,
+            views=course.views
+        )
+        list_of_courses.append(course_response)
+    return list_of_courses
+
+
 # Создаем маршрут для добавления нового курса
-@app.post("/courses/")
+@app.post("/courses/create")
 async def create_course(course_data: CourseCreate):
     # Создайте новый курс с использованием данных, полученных от клиента
     Course.create(
@@ -59,40 +88,45 @@ async def create_course(course_data: CourseCreate):
 # Создаем маршрут для получения информации о курсе по его ID
 @app.get("/courses/{course_id}", response_model=CourseResponse)
 async def get_course(course_id: int):
-    course = Course.get_or_none(id=course_id)
+    course = Course.get_or_none(Course.id == course_id)
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
-    return CourseResponse(**course.__dict__)
+    return course
+
 
 # Создаем маршрут для увеличения количества просмотров курса
-@app.put("/courses/{course_id}/increment-views/", response_model=CourseResponse)
+@app.put("/courses/{course_id}/increment-views")
 async def increment_course_views(course_id: int):
-    course = Course.get_or_none(id=course_id)
+    course = Course.get_or_none(Course.id == course_id)
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     course.views += 1
     course.save()
-    return CourseResponse(**course.__dict__)
+    return {"message": "View has been added"}
+
 
 # Создаем маршрут для поиска курса по названию
-@app.get("/courses/")
+@app.get("/courses/search/")
 async def search_course_by_name(name: str):
     # Ищем курсы, у которых название содержит указанную строку
     courses = Course.select().where(Course.name.contains(name))
     if not courses:
         raise HTTPException(status_code=404, detail="No courses found with the given name")
-    return [CourseResponse(**course.__dict__) for course in courses]
+    courses_data = get_list_of_courses(courses)
+    return courses_data
+
 
 # Создаем маршрут для вывода курсов с фильтрацией и сортировкой
-@app.get("/returnCourses/")
+@app.get("/returnCourses")
 async def return_courses(
-    sort_by: Optional[str] = None,
-    language: Optional[str] = None,
-    level: Optional[str] = None,
-    min_price: Optional[int] = None,
-    max_price: Optional[int] = None,
-    duration: Optional[int] = None,
-    amount: Optional[int] = 10
+        sort_by: str = Query(None, description="Sort by", enum=["name", "views", "price"]),
+        sort_order: str = Query("asc", description="Sort order", enum=["asc", "desc"]),
+        language: str = Query(None, description="Chose language", enum=["rus", "eng"]),
+        duration: int = Query(None, description="Chose duration"),
+        level: str = Query(None, description="Chose difficulty level", enum=["low", "medium", "high"]),
+        min_price: int = Query(None, description="Limits the minimum price"),
+        max_price: int = Query(None, description="Limits the maximum price"),
+        amount: int = Query(None, description="Limits the quantity")
 ):
     # Создаем запрос для выборки курсов
     query = Course.select()
@@ -111,14 +145,28 @@ async def return_courses(
 
     # Применяем сортировку
     if sort_by:
-        if sort_by == "name":
-            query = query.order_by(Course.name)
-        elif sort_by == "views":
-            query = query.order_by(Course.views)
-        elif sort_by == "price":
-            query = query.order_by(Course.price)
+        if sort_order == "desc":
+            if sort_by == "name":
+                query = query.order_by(Course.name.desc())
+            elif sort_by == "views":
+                query = query.order_by(Course.views.desc())
+            elif sort_by == "price":
+                query = query.order_by(Course.price.desc())
+        else:
+            if sort_by == "name":
+                query = query.order_by(Course.name)
+            elif sort_by == "views":
+                query = query.order_by(Course.views)
+            elif sort_by == "price":
+                query = query.order_by(Course.price)
 
-    # Получаем список курсов с учетом фильтров и сортировки, ограничиваем результат первыми 10ю курсами
-    courses = query.limit(amount)
+    if amount is not None:
+        courses = query.limit(amount)
+    else:
+        courses = query
+    course_list = get_list_of_courses(courses)
 
-    return [CourseResponse(**course.__dict__) for course in courses]
+    if not course_list:
+        raise HTTPException(status_code=404, detail="No courses found")
+
+    return course_list

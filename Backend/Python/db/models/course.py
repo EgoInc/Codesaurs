@@ -1,5 +1,5 @@
 from peewee import *
-from models.databasedef import BaseModel
+from .databasedef import BaseModel
 
 class Course(BaseModel):
     id = AutoField(primary_key=True)
@@ -9,8 +9,8 @@ class Course(BaseModel):
     imageurl = TextField(null=False, default="/static/no-photo.png")
     duration = IntegerField(null=False)
     price = IntegerField(null=False)
-    language = CharField(null=False)
-    level = IntegerField(choices=[1, 2, 3])
+    language = CharField(choices=["rus", "eng"])
+    level = CharField(choices=["low", "medium", "high"])
     stages = TextField()
     practice_description = TextField()
     max_score = IntegerField(null=False)
