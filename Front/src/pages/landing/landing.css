@@ -1,0 +1,46 @@
+
+.banner {
+    background-size: cover;   
+    background-image: url("D:/Codesaurs/Front/src/assets/images/background.png");
+    width: 100vw;
+    height: 95vh;
+}
+
+.container {
+flex-direction: column;
+background-color: #161616;
+}
+
+button {
+    color: #fff; /* цвет текста */
+    user-select: none; /* убирать выделение текста */
+    background: #fd1715; /* фон кнопки */
+    padding: 12px 15vw; /* отступ от текста */
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 70vh;
+    margin-left: -40vw;
+  } 
+button:hover { background: #fd4643; } /* при наведении курсора мышки */
+button:active { background: #fd1715; } /* при нажатии */
+
+.hr-line {
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 1px solid #333;
+    width: 80vw;
+
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 30px;
+    text-align: start;
+    margin-left: 10vw;
+}
