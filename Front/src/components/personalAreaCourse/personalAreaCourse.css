@@ -10,7 +10,7 @@
   width: 200px;
   height: 200px;
   border-radius: 16px;
-  background-size: contain;
+  object-fit: contain;
 }
 
 .personal-area-course__content{

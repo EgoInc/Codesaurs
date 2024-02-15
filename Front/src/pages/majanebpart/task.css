@@ -1,0 +1,121 @@
+.task__wrapper{
+    padding-left: 15vw;
+}
+
+.task__content {
+    display: flex;
+    width: 85vw;
+    padding-left: 1vw;
+    background: rgba(0, 0, 0, 0.6);
+    /*padding: 1vw;*/
+}
+
+.personal-area-progress__title{
+    display: flex;
+    justify-content: left;
+    color: white;
+    /*padding: 32px;*/
+    height: 12vh;
+}
+
+.task_example {
+    width: 40%;
+    float: left;
+    border-right: 1px solid #282c34;
+    box-sizing: border-box;
+}
+
+.task-example__image{
+    border-radius: 32px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.taskname {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.disk{
+    word-wrap: break-word;
+    font-size: 14px;
+    color: white;
+}
+.rightside {
+    width: 60%;
+    height: 88vh;
+}
+
+.pass {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #282c34;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.passbutton {
+    width: 40%;
+    background-color: red;
+    border-radius: 20px;
+    font-size: 2vmin;
+    border: 0;
+    color: white;
+    height: 40px;
+}
+
+.solution {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sol {
+    /*position: absolute;*/
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: dimgray;
+    word-wrap: break-word;
+    font-size: 1.5vmin;
+    color: white;
+    padding-left: 20px;
+}
+
+.done {
+    /*position: absolute;*/
+    display: flex;
+    width: 80%;
+    border-radius: 20px;
+    background-color: darkgrey;
+    border: 0;
+    font-size: 2vmin;
+    align-items: center;
+    padding: 12px 24px;
+    color: white;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.done img {
+    /*max-width: 70%;*/
+    width: 32px;
+    height: 32px;
+    /*max-height: 70%;*/
+    align-self: center;
+}
+
+.done div {
+    margin-right: 50px;
+}

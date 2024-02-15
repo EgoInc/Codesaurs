@@ -1,4 +1,6 @@
 .personal-area__wrapper{
   display: flex;
   width: 100vw;
+  background: #282c34;
+  min-height: 100vh;
 }
