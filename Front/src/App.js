@@ -1,24 +1,16 @@
-import logo from "./assets/images/logo.png";
-import "./App.css";
+import React from 'react';
+import './App.css'; // Убедитесь, что стили подключены правильно
+import CourseHeader from './components/personalLessons/CourseHeader'; // Новый компонент заголовка курса
+import CourseProgress from './components/personalLessons/CourseProgress';
+import lessonsData from './components/personalLessons/lessonsData'; // Предполагается, что данные уроков в этом файле
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// каждая страница будет лежать в своей папке, откуда будет импротироваться сюда
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-import { ExamplePage } from "./pages/example/example";
-import FilterPage from "./pages/filterPage/FilterPage";
-
-function App() {
-  return (
-    <div className="App">
-        <FilterPage/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Начнем создавать онлайн-школу</p>
-        <ExamplePage />
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="container">
+            <CourseHeader />
+            <CourseProgress lessons={lessonsData} />
+        </div>
+    );
 }
 
 export default App;
