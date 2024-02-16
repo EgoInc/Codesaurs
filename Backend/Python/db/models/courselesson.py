@@ -1,7 +1,7 @@
 from peewee import *
-from models.databasedef import BaseModel
-from models.course import Course
-from models.teacher import Teacher
+from databasedef import BaseModel
+from course import Course
+from teacher import Teacher
 
 class CourseLesson(BaseModel):
     id = AutoField(primary_key=True)
