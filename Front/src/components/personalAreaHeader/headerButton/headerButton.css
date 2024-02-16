@@ -1,0 +1,24 @@
+.header-button__wrapper{
+  padding: 8px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  width: 100%;
+}
+
+.active {
+  background: rgba(0,0,0,0.6);
+}
+
+.header-button__image{
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.header-button__text{
+  margin-left: 16px;
+  color: white;
+}
