@@ -9,12 +9,13 @@
 1. Клонировать репозиторий: 
 
 `git clone https://github.com/EgoInc/Codesaurs.git`
-2. Установить MySQL:
-https://dev.mysql.com/downloads/installer/
-3. Установить MySQL Workbench (графический интерфейс):
-https://dev.mysql.com/downloads/workbench/
-4. В MySql создать схему  с названием codesaurs:
-`CREATE SCHEMA "codesaurs" ;`
+
+2. Установить MySQL: https://dev.mysql.com/downloads/installer/
+
+3. Установить MySQL Workbench (графический интерфейс): https://dev.mysql.com/downloads/workbench/
+
+4. В MySql создать схему  с названием codesaurs: `CREATE SCHEMA "codesaurs" ;`
+
 5. Установить необходимые библиотеки:
 ```
 pip install fastapi
