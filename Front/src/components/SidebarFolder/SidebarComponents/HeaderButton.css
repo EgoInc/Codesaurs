@@ -1,0 +1,14 @@
+.custom-button {
+  background-color: #323232;
+  border-radius: 35px;
+  width: 60%;
+  border: none;
+  cursor: pointer;
+}
+
+.button-logo {
+  width: 98%;
+  height: auto;
+  border-radius: 20%;
+  background-size: auto;
+}

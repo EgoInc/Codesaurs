@@ -1,0 +1,39 @@
+.custom-button1 {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 35px;
+  width: 100%;
+  padding: 7%;
+  margin: 3%;
+  background-color: #323232;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-icon1 {
+  width: 32px;
+  margin-left: 7%;
+  border-radius: 100%;
+  background-size: auto;
+}
+
+.button-text1 {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: 1.8vmin;
+  margin-left: 10%;
+}
+
+.custom-button1:hover {
+  background-color: #161616;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}

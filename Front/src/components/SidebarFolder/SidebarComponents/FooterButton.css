@@ -1,0 +1,40 @@
+.custom-button2 {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 35px;
+  width: 100%;
+  padding: 4%;
+  margin: 3%;
+  background-color: #323232;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button-icon2 {
+  width: 30px;
+  height: 30px;
+  margin-left: 10%;
+  border-radius: 100%;
+  background-size: auto;
+}
+
+.button-text2 {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: 1.8vmin;
+  margin-left: 5%;
+}
+
+.custom-button2:hover {
+  background-color: #161616;
+}
+
+.button-content2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
