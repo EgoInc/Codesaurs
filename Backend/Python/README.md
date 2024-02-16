@@ -20,7 +20,6 @@
 3. Установить MySQL Workbench (графический интерфейс): https://dev.mysql.com/downloads/workbench/
 
 4. В MySql создать схему  с названием codesaurs: `CREATE SCHEMA "codesaurs" ;`
-<div align="center">
   
 ![MySql1](https://github.com/EgoInc/Codesaurs/blob/PythonWithDocumentation/Backend/Python/adds/MySql%20(1).jpg?raw=true)
 
