@@ -1,4 +1,4 @@
-from models.databasedef import BaseModel
+from databasedef import BaseModel
 from peewee import *
 
 class Teacher(BaseModel):
