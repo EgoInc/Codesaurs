@@ -1,5 +1,5 @@
 from peewee import *
-from models.databasedef import BaseModel
+from databasedef import BaseModel
 
 class Student(BaseModel):
     id = AutoField(primary_key=True)
