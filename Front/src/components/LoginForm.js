@@ -20,6 +20,26 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        const uppercaseRegex = /[A-Z]/;
+        const lowercaseRegex = /[a-z]/;
+        const lengthCheck = password.length >= 8;
+
+        if (!uppercaseRegex.test(password)) {
+            alert("Пароль должен содержать хотя бы одну заглавную букву");
+            return;
+        }
+
+        if (!lowercaseRegex.test(password)) {
+            alert("Пароль должен содержать хотя бы одну строчную букву");
+            return;
+        }
+
+        if (!lengthCheck) {
+            alert("Пароль должен быть не менее 8 символов");
+            return;
+        }
+
         console.log("Form submitted!");
     }
 

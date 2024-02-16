@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53603951-28f4-4271-a07b-3c19f74ec049" name="Changes" comment="" />
+    <list default="true" id="53603951-28f4-4271-a07b-3c19f74ec049" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Register(Iakynin)" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -95,6 +102,7 @@
       <workItem from="1707858089567" duration="2390000" />
       <workItem from="1707897916796" duration="228000" />
       <workItem from="1707899203683" duration="2879000" />
+      <workItem from="1708094224541" duration="630000" />
     </task>
     <servers />
   </component>
