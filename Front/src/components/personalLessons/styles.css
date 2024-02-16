@@ -1,0 +1,191 @@
+.courseHeaderWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the left */
+    background-color: #4D4D4D; /* Grey background */
+    padding: 60px; /* Padding as needed */
+}
+
+.courseHeaderTopText {
+    /*color: #ffffff;*/
+    /*font-size: 40px;*/
+    /*padding-left: 20px;*/
+    /*margin-bottom: 10px;*/
+    /*background-color: #4D4D4D;*/
+    /*text-align: left;*/
+    /*width: 100%;*/
+    display: flex;
+    justify-content: left;
+    color: white;
+    padding: 32px;
+    background: #282c34;
+}
+
+.courseHeaderText{
+    margin-left: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.courseHeaderText h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.courseHeaderText p {
+    font-size: 15px;
+    margin: 5px 0;
+    color: white;
+}
+
+.courseHeader_Text {
+    font-size: 20px;
+    color: white; /* If you want to change the text color to white */
+}
+
+.courseHeaderImage {
+    width: 150px; /* Adjusted for fixed width */
+    height: 150px; /* Adjusted for fixed height */
+    border-radius: 20px;
+}
+
+.course__progress-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start of the flex container */
+    color: white;
+}
+
+.course__progress-wrapper > div {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.course__progressbar {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 16px;
+    height: 10px;
+    width: 100%; /* Adjusted to fill the container */
+    margin-top: 10px; /* Added space above the progress bar */
+}
+
+progress::-webkit-progress-bar {
+    background: #282c34;
+    border-radius: 16px;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #fb2826;
+    border-radius: 16px;
+}
+
+.courseProgress {
+    font-family: 'Arial', sans-serif;
+    background-color: #1F1F1F;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lesson {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 18px;
+    background-color: #222;
+    border-radius: 30px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lesson-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lesson-number {
+    color: #4D90FE;
+    margin-right: 10px;
+}
+
+.lesson-title {
+    color: white;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.lesson.completed .status {
+    background-color: #4D4D4D;
+}
+
+.lesson:not(.completed) .status {
+    background-color: #4D4D4D;
+}
+
+.lesson-content {
+    width: 100%;
+    display: none;
+}
+
+.lesson.expanded .lesson-content {
+    display: block;
+    padding-top: 20px;
+}
+
+.lesson-actions {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.lesson-link-button, .lesson-practice-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    background-color: #FF4136;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: left;
+}
+
+.lesson-link-button {
+    background-color: #555;
+}
+
+.course-container {
+    width: 85vw;
+    min-height: 100vh;
+    margin-left: 15vw;
+    background-color: #222;
+}
+
+.courseInfoWrapper{
+    display: flex;
+    padding-left: 20px;
+    padding-top: 2vh;
+}
+
+/*.courseHeaderText{*/
+/*    margin-left: 10px;*/
+/*}*/

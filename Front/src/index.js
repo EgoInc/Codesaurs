@@ -5,6 +5,7 @@ import App from './App';
 import { LoginPage } from "./pages/loginPage/loginPage";
 import { PersonalArea } from "./pages/personalArea/personalArea";
 import reportWebVitals from './reportWebVitals';
+import Task from "./pages/tasksPage/task";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,12 +13,16 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/login",
     element: <LoginPage/>
   },
   {
     path: "/personal_area",
     element: <PersonalArea/>
+  },
+  {
+    path: "/task",
+    element: <Task/>
   }
 ]);
 

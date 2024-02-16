@@ -4,8 +4,15 @@
   align-items: center;
   border-radius: 32px;
   padding: 8px;
-  background: rgba(0,0,0,0.6);
+  /*background: rgba(0,0,0,0.6);*/
   margin-bottom: 5vh;
+  background: transparent;
+  width: 100%;
+  border: 0;
+}
+
+.active {
+  background: rgba(0,0,0,0.6);
 }
 
 .account-info__image{

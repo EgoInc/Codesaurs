@@ -1,6 +1,6 @@
 import React from "react";
 import "../../pages/tasksPage/task.css";
-import TestImage from "../../assets/images/logo.png"
+import TestImage from "../../assets/images/test.png"
 
 const TaskExample = () => {
     return (

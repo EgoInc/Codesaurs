@@ -20,7 +20,7 @@ const LoginForm = () => {
   }
 
   const handleSubmit = (e) => {
-
+    window.location.href = "/personal_area"
     e.preventDefault();
     console.log("Form submitted!");
   }
