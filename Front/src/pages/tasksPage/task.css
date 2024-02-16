@@ -19,7 +19,7 @@
 }
 
 .task_example {
-    width: 40%;
+    width: 35%;
     float: left;
     border-right: 1px solid #282c34;
     box-sizing: border-box;
@@ -43,13 +43,13 @@
     color: white;
 }
 .rightside {
-    width: 60%;
+    width: 65%;
     height: 88vh;
 }
 
 .pass {
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
     border-bottom: 1px solid #282c34;
     box-sizing: border-box;
     display: flex;
@@ -59,13 +59,14 @@
 }
 
 .passbutton {
-    width: 40%;
+    width: 30%;
     background-color: red;
     border-radius: 20px;
     font-size: 2vmin;
     border: 0;
     color: white;
     height: 40px;
+    margin-right: 10%;
 }
 
 .solution {

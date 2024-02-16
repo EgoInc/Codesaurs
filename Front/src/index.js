@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { LoginPage } from "./pages/loginPage/loginPage";
 import { PersonalArea } from "./pages/personalArea/personalArea";
 import reportWebVitals from './reportWebVitals';
 import {
@@ -12,7 +13,7 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Main Page</div>,
+    element: <LoginPage/>
   },
   {
     path: "/personal_area",

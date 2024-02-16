@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import upload from "../../assets/images/upload.png";
-import "../../pages/majanebpart/task.css";
+import "../../pages/tasksPage/task.css";
 
 const Solution = () => {
     const [text, setText] = useState("");

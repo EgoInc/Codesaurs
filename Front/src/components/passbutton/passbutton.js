@@ -1,5 +1,5 @@
 import React from "react";
-import "../../pages/majanebpart/task.css";
+import "../../pages/tasksPage/task.css";
 
 const PassButton = () => {
 
