@@ -2,16 +2,18 @@
 .banner {
     background-size: cover;   
     background-image: url("../../assets/images/background.png");
-    width: 100%;
     height: 95vh;
 }
 
-.container {
+.box {
     flex-direction: column;
     background-color: #161616;
-    position: absolute;
     top: 0;
     width: 100%;
+    font-size: 180%;
+    color: azure;
+    position: absolute;
+    
 }
 
 button {
@@ -24,7 +26,7 @@ button {
     font-weight: 700;
     font-size: 0.9rem;
     margin-top: 70vh;
-    margin-left: -40vw;
+    margin-left: 10vw;
     cursor: pointer;
   } 
 button:hover { background: #fd4643; } /* при наведении курсора мышки */
@@ -48,4 +50,64 @@ h1 {
     text-align: start;
     margin-left: 10vw;
     color: white;
+}
+
+
+.expanded {
+    max-height: 500px; /* Максимальная высота текста при развернутом состоянии */
+    overflow: hidden; /* Скрытие избыточного содержимого */
+    transition: max-height 0.5s ease; /* Плавное изменение высоты */
+}
+
+.collapsed {
+    max-height: 0; /* Минимальная высота текста при свернутом состоянии */
+    overflow: hidden; /* Скрытие избыточного содержимого */
+    transition: max-height 0.5s ease; /* Плавное изменение высоты */
+}
+
+h3 {
+    white-space: pre-line;
+}
+
+
+a{
+    color: azure;
+    text-decoration: none;
+}
+
+/* Желтый цвет для первого титула */
+.subTitle0 {
+    color: #ffeeaa;
+
+}
+
+/* Голубой цвет для второго титула */
+.subTitle1 {
+    color: #c7c7f1;
+}
+
+/* Зеленый цвет для третьего титула */
+.subTitle2 {
+    color: #c3f2cb;
+}
+
+/* Розовый цвет для четвертого титула */
+.subTitle3 {
+    color: #c8edfd;
+}
+.steps {
+    display: flex;
+    justify-content: center;
+    margin-left: 20vw;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.step:not(:last-child) {
+    border-right: 2px solid black; /* Линия для разделения блоков */
 }
