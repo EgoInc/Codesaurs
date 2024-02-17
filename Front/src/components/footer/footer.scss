@@ -1,0 +1,50 @@
+.footer {
+  background-color: #323232;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  &__logo {
+
+    &-text {
+      margin-bottom: 2px;
+      margin-top: 0;
+      text-align: left;
+      text-transform: uppercase;
+
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: white;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+  }
+
+  &__link-list {
+    display: flex;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  &__link-about {
+    text-align: left;
+    margin-right: 40px;
+  }
+  
+  &__link-item {
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin-top: 2px;
+
+    &:first-child {
+      font-weight: 600;
+      font-size: 13px;
+    }
+  }
+}

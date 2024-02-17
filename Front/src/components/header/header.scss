@@ -1,0 +1,36 @@
+.header {
+  background-color: #161616;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+
+    width: 80%;
+    margin: 0 auto;
+    padding: 25px 10px 20px;
+
+  }
+
+  &-link {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    margin-right: 30px;
+  }
+
+  &__login-btn {
+    background-color: #fb2826;
+    border-radius: 24px;
+
+    padding: 5px 25px;
+  }
+  &__btn {
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 24px;
+    background-color: #fb2826;
+    color: white;
+  }
+}
