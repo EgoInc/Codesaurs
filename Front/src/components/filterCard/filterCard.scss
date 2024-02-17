@@ -1,0 +1,121 @@
+.cards-block__item {
+
+  &:first-child {
+    margin-top: 10px;
+  }
+  max-width: 100%;
+  margin-top: 30px;
+  padding: 10px;
+
+  display: flex;
+
+  border-radius: 24px;
+  background-color: #323232;
+  >img {
+
+    max-width: 200px;
+    border-radius: 24px;
+  }
+  .cards-block {
+
+    &__card-header {
+      font-size: 20px;
+      font-weight: 500;
+      display: block;
+      text-align: left;
+      margin-top: 5px;
+      color: white;
+      margin-left: 20px;
+
+    }
+
+    &__card-content {
+      display: flex;
+    }
+
+    &__difficulties {
+      margin-left: 100px;
+    }
+
+    &__card-text {
+
+      font-size: 14px;
+      display: block;
+      text-align: left;
+      margin-top: 5px;
+      color: white;
+      margin-left: 30px;
+
+      >span {
+        font-size: 14px;
+        display: block;
+        text-align: left;
+        margin-top: 5px;
+        color: white;
+      }
+    }
+
+    &__card-descr {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+    }
+
+    &__card-details {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+    }
+
+    &__difficulties {
+      color: white;
+      background-color: inherit;
+
+      border: solid #d7d7d7 1px;
+      border-radius: 24px;
+
+      padding: 5px 15px;
+      margin-top: 5px;
+    }
+
+    &__lessons-count {
+      color: white;
+      font-size: 14px;
+      font-weight: 300;
+
+      margin-right: 10px;
+    }
+
+    &__card-price {
+      color: white;
+      font-weight: 500;
+      font-size: 20px;
+
+      margin-top: 60px;
+    }
+
+    &__card-btn>button {
+      text-align: center;
+      color: white;
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: #fd1715;
+
+
+      padding: 10px 25px;
+
+      cursor: pointer;
+
+      border-radius: 24px;
+      border: none;
+
+      >a {
+        color: white;
+        font-size: 14px;
+        font-family: 'Source Sans Pro', sans-serif;
+        text-decoration: none;
+      }
+    }
+  }
+}

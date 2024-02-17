@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import FilterPage from "./pages/filterPage/FilterPage";
 import { LoginPage } from "./pages/loginPage/loginPage";
 import { PersonalArea } from "./pages/personalArea/personalArea";
 import reportWebVitals from './reportWebVitals';
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/task",
     element: <Task/>
+  },
+  {
+    path: "/filter",
+    element: <FilterPage/>
   }
 ]);
 
