@@ -533,6 +533,13 @@ header > *:last-child {
   .course-info > .flex {
     align-items: start;
   }
+  .nav {
+    flex-direction: column;
+  }
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 800px)  {
