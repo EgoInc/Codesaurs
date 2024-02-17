@@ -2,11 +2,13 @@ import FilterCard from "../../components/filterCard/FilterCard";
 import './filterPage.scss'
 
 
-import ApiServices from "../../services/ApiServices.ts"
+import ApiServices from "../../services/ApiServices"
 import React, {useEffect, useState} from "react";
-import {options} from "axios";
+import {cardData} from "./filterData";
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 const Filter = () => {
-    const [itemList, setItemList] = useState([]);
+    const [itemList, setItemList] = useState(cardData);
     const [level, setLevel] = useState("");
     const [length, setLength] = useState("");
     const [language, setLanguage] = useState("russian")
@@ -14,35 +16,40 @@ const Filter = () => {
     const [priceMax, setPriceMax] = useState(100000);
     const [filterLink, setFilterLink] = useState('');
     const [loading, setLoading] = useState(true);
+    const [sortBy, setSortBy] = useState("default");
+    const [searchStr, setSearchStr] = useState("");
     const [error, setError] = useState(false);
     const [submit, setSubmit] = useState(false);
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const [isRangeChanged, setIsRangeChanged] = useState({priceMin: false, priceMax: false});
+    const [priceFormatCheck, setPriceFormatCheck] = useState({priceMin: false, priceMax: false});
 
     const apiLink = 'https://jsonplaceholder.typicode.com/'
     const apiService = new ApiServices();
 
     const handleReset = () => {
+        setSearchStr("")
         setLevel('default');
         setLength('default')
         setLanguage("russian")
         setPriceMin(0)
         setPriceMax(100000)
-        setIsRangeChanged({priceMin: false, priceMax: false});
+        setPriceFormatCheck({priceMin: false, priceMax: false});
     };
 
     useEffect(() => {
-        buildLink();
-        onRequest();
+        return () => {
+            buildLink();
+            // onRequest();
+        }
     }, [submit]);
 
-    const onRequest = () => {
-        setItemList([])
-        apiService
-            .getFilteredProducts(filterLink)
-            .then((data) => onDataLoaded(data))
-            .catch(onError);
-    };
+    // const onRequest = () => {
+    //     setItemList([])
+    //     apiService
+    //         .getFilteredProducts(filterLink)
+    //         .then((data) => onDataLoaded(data))
+    //         .catch(onError);
+    // };
 
     const onDataLoaded = (newDataList) => {
         setItemList((oldDataList) => [...oldDataList, ...newDataList])
@@ -50,7 +57,7 @@ const Filter = () => {
     }
 
     const onError = () => {
-        setLoading(false)
+        setLoading(true)
         setError(true)
     }
 
@@ -78,12 +85,36 @@ const Filter = () => {
     const buildLink = () => {
         const UrlParam = new URLSearchParams();
         let link = apiLink;
+        UrlParam.append("title", searchStr);
         UrlParam.append("posts", level);
         UrlParam.append("userId", length);
         UrlParam.append("_start", priceMin.toString());
         UrlParam.append("_limit", priceMax.toString());
         link += UrlParam;
         setFilterLink(link);
+    };
+
+    const priceCheck = (event) => {
+        const inputPrice = event.target.value;
+        return (/^\d+$/.test(inputPrice) && parseInt(inputPrice) > 0)
+    }
+
+    const handleSortChange = (event) => {
+        const selectedSort = event.target.value;
+
+        let sortedCards = [...itemList];
+        if (selectedSort === 'name-asc') {
+            sortedCards.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (selectedSort === 'name-desc') {
+            sortedCards.sort((a, b) => b.name.localeCompare(a.name));
+        } else if (selectedSort === 'price-asc') {
+            sortedCards.sort((a, b) => a.price - b.price);
+        } else if (selectedSort === 'price-desc') {
+            sortedCards.sort((a, b) => b.price - a.price);
+        }
+
+        setSortBy(selectedSort);
+        setItemList(sortedCards);
     };
 
     const levelCategories = [
@@ -104,6 +135,13 @@ const Filter = () => {
         { value: "length6", label: "30 дней" }
     ];
 
+    const sortCategories = [
+        { value: "name-asc", label: "По имени А-Я" },
+        { value: "name-desc", label: "По имени Я-А" },
+        { value: "price-asc", label: "По цене: По возрастанию" },
+        { value: "price-desc", label: "По цене: По убыванию" },
+    ];
+
     const product = {
         cost: 999,
         imageUrl: 'https://assets.api.uizard.io/api/cdn/stream/ae3c7473-5df0-4fbc-a9bf-61d8fa4eaa98.png',
@@ -113,8 +151,10 @@ const Filter = () => {
         description: 'Идеально для новичков\n Видео лекции практические занятия\n Можно изучать в своем темпе\n',
         title: 'Основы программирования'
     }
-
+    console.log(sortBy)
     return (
+        <>
+            <Header/>
         <section className='filter'>
             <div className="filter-container">
                 <div className="filter-block">
@@ -124,7 +164,10 @@ const Filter = () => {
                             <div className="filter-block__main-item">
                                 Поиск по названию
                                 <div className="filter-block__main-inp">
-                                    <input type="text" placeholder="Выберите название курса"/>
+                                    <input type="text" placeholder="Выберите название курса"
+                                           value={searchStr}
+                                           onChange={(event) => setSearchStr(event.target.value)}
+                                    />
                                 </div>
                             </div>
                             <div className="filter-block__main-item">
@@ -165,13 +208,15 @@ const Filter = () => {
                             Язык
                             <div className="filter-block__lang-item">
                                 <input type="radio" name="lang"
+                                       value='russian'
                                        checked={language === 'russian'}
                                        onChange={handleLanguage}
                                 /> Русский
                             </div>
                             <div className="filter-block__lang-item">
                                 <input type="radio" name="lang"
-                                       checked={language !== 'russian'}
+                                       value='not russian'
+                                       checked={language === 'not russian'}
                                        onChange={handleLanguage}
                                 /> Не русский
                             </div>
@@ -179,15 +224,25 @@ const Filter = () => {
                         <div className="filter-block__cost-filter">
                             Стоимость
                             <div className="filter-block__cost-inp">
-                                <input type="text" placeholder='От' value={isRangeChanged.priceMin ? `${priceMin}` : ''}
+                                <input type="text" placeholder='От' value={priceFormatCheck.priceMin ? `${priceMin}` : ''}
                                        onChange={(event) => {
-                                           setPriceMin(+event.target.value);
-                                           setIsRangeChanged({priceMin: true, priceMax: false});
+                                           if (priceCheck(event)) {
+                                               setPriceMin(+event.target.value);
+                                               setPriceFormatCheck({priceMin: true, priceMax: false});
+                                           }
+                                           else {
+                                               setPriceFormatCheck({priceMin: false, priceMax: false})
+                                           }
                                        }} />
-                                <input type="text" placeholder='До' value={isRangeChanged.priceMax ? `${priceMax}` : ''}
+                                <input type="text" placeholder='До' value={priceFormatCheck.priceMax ? `${priceMax}` : ''}
                                        onChange={(event) => {
-                                           setPriceMax(+event.target.value);
-                                           setIsRangeChanged({priceMin: true, priceMax: true});
+                                           if (priceCheck(event)) {
+                                               setPriceMax(+event.target.value);
+                                               setPriceFormatCheck({priceMin: true, priceMax: true});
+                                           }
+                                           else {
+                                               setPriceFormatCheck({priceMin: false, priceMax: false})
+                                           }
                                        }} />
                             </div>
                             {priceMin > priceMax ? (
@@ -195,26 +250,36 @@ const Filter = () => {
                                 )
                                 : undefined}
                         </div>
-                        <button className="filter-block__btn">Найти</button>
+                        <button className="filter-block__btn"
+                            onClick={() => setSubmit(!submit)}
+                        >Найти</button>
                     </div>
                 </div>
                 <div className="cards-block">
-                    <div className="cards-block__footer">
+                    <div className="cards-block__nav">
                         <header className="cards-block__header">Все курсы</header>
-                        <select name="" id="" className="cards-block__select">
-                            <option value="">Сортировать</option>
-                        </select></div>
+                        <div className="cards-block__select">
+                            <select name="" id="" value={sortBy} onChange={handleSortChange}>
+                                <option value="">Сортировать</option>
+                                {sortCategories.map((o) => (
+                                    <option key={o.value} value={o.value}>{o.label}</option>
+                                ))}
+                            </select>
+                        </div></div>
+
                     {loading ? (
                         <div className="cards-block__list">
-                            <FilterCard product={product}/>
-                            <FilterCard product={product}/>
-                            <FilterCard product={product}/>
+                            {itemList.map((card) => (
+                                <FilterCard product={card}/>
+                            ))}
                         </div>
                     ) : <p className="cards-block__list-loading">Loading...</p>}
                 </div>
 
             </div>
         </section>
+            <Footer/>
+        </>
     );
 };
 
