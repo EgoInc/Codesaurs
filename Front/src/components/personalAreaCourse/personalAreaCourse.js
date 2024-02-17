@@ -9,10 +9,10 @@ export function PersonalAreaCourse(props) {
           {props.title}
         </div>
         <div className={"personal-area-course__date"}>
-          {props.date}
+          {`Начало курса: ${props.date}`}
         </div>
         <div className={"personal-area-course__progress-wrapper"}>
-          <progress className={"personal-area-course__progressbar"} value={props.progress} max={10}></progress>
+          <progress className={"personal-area-course__progressbar"} value={props.progress} max={props.duration}></progress>
           {/* {props.progress} */}
           <div>{`Пройдено ${props.progress}/10`}</div>
         </div>
