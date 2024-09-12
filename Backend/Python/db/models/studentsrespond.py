@@ -1,7 +1,7 @@
-from models.databasedef import BaseModel
+from databasedef import BaseModel
 from peewee import *
-from models.student import Student
-from models.task import Task
+from student import Student
+from task import Task
 
 
 class StudentRespond(BaseModel):
