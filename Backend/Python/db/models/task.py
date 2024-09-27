@@ -1,6 +1,6 @@
-from models.databasedef import BaseModel
+from databasedef import BaseModel
 from peewee import *
-from models.courselesson import CourseLesson
+from courselesson import CourseLesson
 
 class Task(BaseModel):
     id = AutoField(primary_key=True)
